@@ -37,18 +37,18 @@ const About = () => {
         <motion.div className = "flex px-20"
         initial = {{opacity: 0, y: 40 , scale : 0.8}}
         whileInView = {{opacity: 1, y: 0 , scale : 1}}> 
-          <img src = {images} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {image} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {express} alt = "skills" className = "w-22 h-20 mx-auto mt-10 rounded-full"/>
-          <img src = {mongodb} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {leetcode} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {codechef} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {nodejs} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {javascript} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {python} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {java} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {c} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
-          <img src = {cpp} alt = "skills" className = "w-20 h-20 mx-auto mt-10"/>
+          <img src = {images} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {image} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {express} alt = "skills" className = "w-22 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {mongodb} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {leetcode} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {codechef} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {nodejs} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {javascript} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {python} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {java} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {c} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
+          <img src = {cpp} alt = "skills" className = "w-20 h-20 mx-auto mt-10 rounded-4xl hover:scale-150 transition-all hover:cursor-pointer"/>
         </motion.div>
        <motion.div className="text-white m-15 text-center flex-row justify-between item-center"
         initial = {{opacity: 0, y: 40}}
