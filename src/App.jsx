@@ -3,12 +3,13 @@ import Home from './pages/home'
 import About from './pages/about'
 import Projects from './pages/projects'
 import Contact from './pages/contact'
+import Certification from './pages/certification'
 import Footer from './components/footer'
 import{ motion }from 'framer-motion'
 import React from "react";
 function App() {
   return (
-    <div>
+    <div className = "w-full overflow-hidden">
       <PortfolioBackground />
 
       <div
@@ -23,6 +24,7 @@ function App() {
       <div>
         <Home />
         <About />
+        <Certification />
         <Projects />
         <Contact />
         <Footer />
