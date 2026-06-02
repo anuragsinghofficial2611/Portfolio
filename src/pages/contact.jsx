@@ -1,7 +1,7 @@
 import React from 'react'
 import LinkedIn from '../assets/linkedinconnect.png'
 import Twitter from '../assets/Twitter.png'
-import GitHub from '../assets/GitHub.png'
+import GitHub from '../assets/Github.png'
 import Instagram from '../assets/instagram.jpg'
 import Leetcode from '../assets/leetcode.png'
 import { motion } from 'framer-motion'
