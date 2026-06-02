@@ -10,7 +10,7 @@ const Home = () => {
                 initial={{ opacity: 0 , y: -10 }}
                 whileInView={{ opacity: 1 , y: 0}}
                 transition={{ duration: 0.7 }}
-                delay={0.2}
+                delay={0.3}
                 >
                     I DON'T JUST WRITE CODE, I SOLVE PROBLEMS, BUILD PRODUCTS, AND CREATE EXPERIENCES PEOPLE REMEMBER.
                 </motion.p>

@@ -70,7 +70,7 @@ const Projects = () => {
             </div>
             <div className="mt-10">
               <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>ReactJS , TailwindCSS , Framer Motion , ExpressJS , MongoDB</p>
+              <p>ReactJS , TailwindCSS , Framer Motion</p>
               <h2 className="text-2xl font-bold mt-10 m">Description </h2>
               <p className = "w-120 mb-10">This is personal portfolio project to showcase skills and show people about myself and my acheivments to show my capabilities made by ReactJS designed by TailwindCSS and animated through framer motion</p>
               <a href="https://github.com/anuragsinghofficial2611/Portfolio" className="w-100 font-bold px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>

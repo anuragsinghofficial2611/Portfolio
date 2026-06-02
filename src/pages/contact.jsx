@@ -13,7 +13,7 @@ const Contact = () => {
       initial = {{opacity: 0 , y: 20}}
       whileInView = {{opacity: 1 , y: 0}}
       >Social Media Plateforms</motion.h2>
-      <div className = "flex  gap-30 w-800">
+      <div className = "flex justify-center gap-30 ">
 
       <a href="https://www.linkedin.com/in/anurag-singh-469019381/" target="_blank" rel="noopener noreferrer">
         <motion.img src = {LinkedIn} className = "h-50 w-50 rounded-4xl :hover cursor-pointer transition-all hover:scale-120"
@@ -34,12 +34,12 @@ const Contact = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         />
       </a>
-      <a href="https://www.instagram.com/its_silentspark2007_/" target="_blank" rel="noopener noreferrer">
+      {/* <a href="https://www.instagram.com/its_silentspark2007_/" target="_blank" rel="noopener noreferrer">
         <motion.img src = {Instagram} className = "h-50 w-50 rounded-4xl :hover cursor-pointer transition-all hover:scale-120"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         />
-      </a>
+      </a> */}
       <a href="https://leetcode.com/u/BlZVSBLJIv/" target="_blank" rel="noopener noreferrer">
         <motion.img src = {Leetcode} className = "h-50 w-50 rounded-4xl :hover cursor-pointer transition-all hover:scale-120"
         initial={{ opacity: 0, scale: 0.8 }}
