@@ -1,223 +1,148 @@
-// PortfolioBackground.jsx
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import {
-  Sphere,
-  Torus,
-  Icosahedron,
-  MeshDistortMaterial,
-} from "@react-three/drei";
+import { Float, Stars } from "@react-three/drei";
+import * as THREE from "three";
 
-/* =========================
-   CSS
-========================= */
-
-const CSS = `
-@keyframes orbFloat1 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(60px,-40px) scale(1.1); }
-}
-
-@keyframes orbFloat2 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(-50px,40px) scale(1.05); }
-}
-
-.pb-root {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  background: #050810;
-  z-index: -1;
-}
-
-.pb-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-}
-
-.pb-orb-1 {
-  width: 500px;
-  height: 500px;
-  top: -10%;
-  left: -10%;
-  background: rgba(112,80,255,0.25);
-  animation: orbFloat1 12s ease-in-out infinite;
-}
-
-.pb-orb-2 {
-  width: 400px;
-  height: 400px;
-  bottom: -10%;
-  right: -10%;
-  background: rgba(0,229,255,0.18);
-  animation: orbFloat2 14s ease-in-out infinite;
-}
-
-.pb-grid {
-  position: absolute;
-  inset: 0;
-
-  background-image:
-    linear-gradient(rgba(112,80,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(112,80,255,0.08) 1px, transparent 1px);
-
-  background-size: 60px 60px;
-}
-
-.pb-canvas {
-  position: absolute;
-  inset: 0;
-}
-`;
-
-function injectCSS() {
-  if (document.getElementById("portfolio-bg-css")) return;
-
-  const style = document.createElement("style");
-  style.id = "portfolio-bg-css";
-  style.innerHTML = CSS;
-
-  document.head.appendChild(style);
-}
-
-/* =========================
-   WebGL Detection
-========================= */
-
-function useWebGLSupport() {
-  const [supported, setSupported] = useState(false);
-
-  useEffect(() => {
-    try {
-      const canvas = document.createElement("canvas");
-
-      const gl =
-        canvas.getContext("webgl") ||
-        canvas.getContext("experimental-webgl");
-
-      setSupported(!!gl);
-    } catch {
-      setSupported(false);
-    }
-  }, []);
-
-  return supported;
-}
-
-/* =========================
-   3D Scene
-========================= */
-
-function Scene3D() {
-  const groupRef = useRef();
+function Ring({ position, color, scale }) {
+  const meshRef = useRef();
 
   useFrame((state) => {
-    if (!groupRef.current) return;
+    meshRef.current.rotation.x += 0.002;
+    meshRef.current.rotation.y += 0.003;
 
-    const t = state.clock.getElapsedTime();
-
-    groupRef.current.rotation.y = t * 0.15;
-    groupRef.current.rotation.x = Math.sin(t * 0.2) * 0.15;
-
-    groupRef.current.position.x = state.mouse.x * 0.5;
-    groupRef.current.position.y = state.mouse.y * 0.5;
+    meshRef.current.position.y =
+      position[1] + Math.sin(state.clock.elapsedTime) * 0.15;
   });
 
   return (
-    <group ref={groupRef}>
-      <ambientLight intensity={0.4} />
-
-      <directionalLight
-        position={[5, 5, 5]}
-        intensity={2}
-        color="#7050ff"
-      />
-
-      <directionalLight
-        position={[-5, -5, -5]}
-        intensity={1}
-        color="#00e5ff"
-      />
-
-      <Sphere args={[1.2, 64, 64]} position={[0, 0, -2]}>
-        <MeshDistortMaterial
-          color="#111827"
-          emissive="#7050ff"
-          emissiveIntensity={0.5}
-          distort={0.35}
-          speed={2}
-        />
-      </Sphere>
-
-      <Torus
-        args={[2, 0.04, 16, 100]}
-        position={[0, 0, -3]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+    <Float speed={2}>
+      <mesh ref={meshRef} position={position} scale={scale}>
+        <torusGeometry args={[1, 0.08, 32, 100]} />
         <meshStandardMaterial
-          color="#00e5ff"
-          wireframe
-          transparent
-          opacity={0.4}
+          color={color}
+          emissive={color}
+          emissiveIntensity={2}
+          metalness={1}
+          roughness={0}
         />
-      </Torus>
-
-      <Icosahedron args={[0.6, 0]} position={[-2, 1, -2]}>
-        <meshStandardMaterial
-          color="#c040ff"
-          wireframe
-        />
-      </Icosahedron>
-
-      <Icosahedron args={[0.8, 0]} position={[2, -1, -2]}>
-        <meshStandardMaterial
-          color="#7050ff"
-          wireframe
-        />
-      </Icosahedron>
-    </group>
+      </mesh>
+    </Float>
   );
 }
 
-/* =========================
-   CSS Fallback
-========================= */
+function FloatingParticles() {
+  const particlesRef = useRef();
 
-function CSSFallback() {
+  const count = 2000;
+  const positions = new Float32Array(count * 3);
+
+  for (let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 40;
+  }
+
+  useFrame((state) => {
+    particlesRef.current.rotation.y =
+      state.clock.elapsedTime * 0.03;
+  });
+
+  return (
+    <points ref={particlesRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={positions.length / 3}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+
+      <pointsMaterial
+        size={0.03}
+        color="#00ffff"
+        transparent
+        opacity={0.8}
+      />
+    </points>
+  );
+}
+
+function Scene() {
+  useFrame((state) => {
+    state.camera.position.x =
+      Math.sin(state.clock.elapsedTime * 0.1) * 2;
+
+    state.camera.position.y =
+      Math.cos(state.clock.elapsedTime * 0.1) * 1;
+
+    state.camera.lookAt(0, 0, 0);
+  });
+
   return (
     <>
-      <div className="pb-orb pb-orb-1" />
-      <div className="pb-orb pb-orb-2" />
-      <div className="pb-grid" />
+      <color attach="background" args={["#000000"]} />
+
+      <ambientLight intensity={0.5} />
+
+      <pointLight
+        position={[5, 5, 5]}
+        intensity={10}
+        color="#00ffff"
+      />
+
+      <pointLight
+        position={[-5, -5, -5]}
+        intensity={8}
+        color="#ff00ff"
+      />
+
+      <Stars
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
+
+      <FloatingParticles />
+
+      <Ring
+        position={[-3, 0, -2]}
+        color="#00ffff"
+        scale={1.5}
+      />
+
+      <Ring
+        position={[3, 1, -4]}
+        color="#ff00ff"
+        scale={1.2}
+      />
+
+      <Ring
+        position={[0, -2, -3]}
+        color="#7c3aed"
+        scale={2}
+      />
     </>
   );
 }
 
-/* =========================
-   Main Component
-========================= */
-
-export default function PortfolioBackground() {
-  const webGL = useWebGLSupport();
-
-  useEffect(() => {
-    injectCSS();
-  }, []);
-
+export default function ThreeDBackground() {
   return (
-    <div className="pb-root">
-      <CSSFallback />
-
-      {webGL && (
-        <div className="pb-canvas">
-          <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-            <Scene3D />
-          </Canvas>
-        </div>
-      )}
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: -1,
+      }}
+    >
+      <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </div>
   );
 }
