@@ -4,7 +4,7 @@ import { HashLink } from 'react-router-hash-link'
 const Navbar = () => {
   return (
     <>
-    <motion.div className = "flex justify-between items-center p-5 mb-20 w-full z-20 "
+    <motion.div className = "justify-between items-center p-5 mb-20 w-full z-20 flex flex-wrap "
     initial = {{y: 20, opacity: 0}}
     whileInView = {{y: 0, opacity: 1}}
     transition = {{duration: 0.3}}
