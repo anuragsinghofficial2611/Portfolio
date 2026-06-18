@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import demovideo from '../assets/weatherappdemo.mp4'
 import portfoliovideo from '../assets/portfolioproject.mp4'
 import crud from '../assets/CRUD.jpg'
+import lifelink from '../assets/lifelink.png'
+
 
 const Projects = () => {
   return (
@@ -13,9 +15,32 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
         >My Works</motion.h2>
         <div>
+          
           <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
           initial = {{opacity: 0 , y: 20}}
           whileInView = {{opacity: 1, y: 0}}>
+            <div></div>
+            <div>
+              <p className="flex justify-between md:ml-30 mb-10 font-bold text-2xl">CRUD Application in Backend</p>
+              <img src = {lifelink}
+                className="w-150 h-70 object-cover"
+              />
+            </div>
+            <div className="mt-10 md:flex-col">
+              <h2 className="font-bold text-2xl">Tech Stack</h2>
+              <p>ReactJS , Framer-motion , Redux</p>
+              <h2 className="text-2xl font-bold mt-10 ">Description</h2>
+              <p className="md:w-120 mb-10">
+                LifeLink is a plateform to connect to blood required patients with blood donors easily and reduce time of blood connectivity in emergency situations this is complete full stack project and my role was to design and create complete frontend side of the application in this
+              </p>
+              <a href="https://github.com/Project-Lifelink/LifeLink-Frontend" className="md:w-100 font-bold md:px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
+            </div>
+            <div></div>
+          </motion.div>
+          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
+          initial = {{opacity: 0 , y: 20}}
+          whileInView = {{opacity: 1, y: 0}}>
+            <div></div>
             <div>
               <p className="flex justify-between md:ml-50 mb-10 font-bold text-2xl">Weather App</p>
               <video
@@ -36,9 +61,11 @@ const Projects = () => {
             </div>
             <div></div>
           </motion.div>
+          
           <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
           initial = {{opacity: 0 , y: 20}}
           whileInView = {{opacity: 1, y: 0}}>
+            <div></div>
             <div>
               <p className="flex justify-between md:ml-30 mb-10 font-bold text-2xl">CRUD Application in Backend</p>
               <img src = {crud}
@@ -57,6 +84,7 @@ const Projects = () => {
           <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
           initial = {{opacity: 0 , y: 20}}
           whileInView = {{opacity: 1, y: 0}}>
+            <div></div>
             <div>
               <p className="flex justify-between md:ml-45  mb-10 font-bold text-2xl">Personal Portfolio</p>
               <video
