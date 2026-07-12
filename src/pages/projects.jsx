@@ -6,135 +6,98 @@ import crud from '../assets/CRUD.jpg'
 import lifelink from '../assets/lifelink.png'
 import Bloggingapp from '../assets/Bloggingapp.png'
 
+const projects = [
+  {
+    title: 'Blogging App',
+    image: Bloggingapp,
+    type: 'image',
+    tech: 'ReactJS, Framer Motion, ExpressJS, MongoDB, JWT Authentication',
+    description: 'A full-stack blogging platform where users can create accounts, publish posts, and explore content from other writers with secure authentication and password protection.',
+    link: 'https://github.com/Project-Lifelink/LifeLink-Frontend',
+  },
+  {
+    title: 'LifeLink',
+    image: lifelink,
+    type: 'image',
+    tech: 'ReactJS, Framer Motion, Redux',
+    description: 'A responsive platform designed to connect patients with blood donors quickly during emergency situations while keeping the user experience simple and accessible.',
+    link: 'https://github.com/Project-Lifelink/LifeLink-Frontend',
+  },
+  {
+    title: 'Weather App',
+    image: demovideo,
+    type: 'video',
+    tech: 'React, Tailwind CSS',
+    description: 'A weather dashboard that fetches live weather data and updates the UI dynamically using React state and API responses.',
+    link: 'https://github.com/anuragsinghofficial2611/Weather-App',
+  },
+  {
+    title: 'CRUD and Authentication Backend',
+    image: crud,
+    type: 'image',
+    tech: 'ExpressJS, MongoDB, JWT Authentication',
+    description: 'A backend project for storing, updating, and deleting user information securely while handling authentication workflows effectively.',
+    link: 'https://github.com/anuragsinghofficial2611/LifeLink-Database-Demo',
+  },
+  {
+    title: 'Personal Portfolio',
+    image: portfoliovideo,
+    type: 'video',
+    tech: 'ReactJS, Tailwind CSS, Framer Motion',
+    description: 'A personal portfolio built to present skills, projects, and achievements with a modern and animated experience.',
+    link: 'https://github.com/anuragsinghofficial2611/Portfolio',
+  },
+]
 
 const Projects = () => {
   return (
-    <div id="projects" className="mt-50">
-      <div className="text-white md:not-first:m-30 text-center">
-        <motion.h2 className="text-4xl font-extrabold"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >My Works</motion.h2>
-        <div>
-          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}>
-            <div></div>
-            <div>
-              <p className="flex justify-between md:ml-60 mb-10 font-bold text-2xl">Blogging App</p>
-              <img src={Bloggingapp}
-                className="w-150 h-70 object-cover"
-              />
-            </div>
-            <div className="mt-10 md:flex-col">
-              <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>ReactJS , Framer-motion , ExpressJS , MongoDB , JWT Authentication </p>
-              <h2 className="text-2xl font-bold mt-10 ">Description</h2>
-              <p className="md:w-120 mb-10">
-                Created an Full stack web application in which user can create there account and create a blog post and can see other users blog posts. Implemented JWT Authentiation and Bcrypt for passwords security
-              </p>
-              <a href="https://github.com/Project-Lifelink/LifeLink-Frontend" className="md:w-100 font-bold md:px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
-            </div>
-            <div></div>
-          </motion.div>
+    <section id="projects" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">My Work</p>
+        <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Selected projects that reflect my growth.</h2>
+      </motion.div>
 
-          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
+      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        {projects.map((project, index) => (
+          <motion.article
+            key={project.title}
+            className="flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-slate-950/50 shadow-[0_0_60px_rgba(0,0,0,0.2)] backdrop-blur"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}>
-            <div></div>
-            <div>
-              <p className="flex justify-between md:ml-60 mb-10 font-bold text-2xl">LifeLink</p>
-              <img src={lifelink}
-                className="w-150 h-70 object-cover"
-              />
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.06 }}
+          >
+            <div className="overflow-hidden">
+              {project.type === 'video' ? (
+                <video src={project.image} autoPlay loop muted playsInline className="h-64 w-full object-cover transition duration-500 hover:scale-105" />
+              ) : (
+                <img src={project.image} alt={project.title} className="h-64 w-full object-cover transition duration-500 hover:scale-105" />
+              )}
             </div>
-            <div className="mt-10 md:flex-col">
-              <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>ReactJS , Framer-motion , Redux</p>
-              <h2 className="text-2xl font-bold mt-10 ">Description</h2>
-              <p className="md:w-120 mb-10">
-                LifeLink is a plateform to connect to blood required patients with blood donors easily and reduce time of blood connectivity in emergency situations this is complete full stack project and my role was to design and create complete frontend side of the application in this
-              </p>
-              <a href="https://github.com/Project-Lifelink/LifeLink-Frontend" className="md:w-100 font-bold md:px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
-            </div>
-            <div></div>
-          </motion.div>
-          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}>
-            <div></div>
-            <div>
-              <p className="flex justify-between md:ml-50 mb-10 font-bold text-2xl">Weather App</p>
-              <video
-                src={demovideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-150 md:h-70 object-cover"
-              />
-            </div>
-            <div className="mt-10 flex-col">
-              <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>React , TailwindCSS</p>
-              <h2 className="text-2xl font-bold mt-10 ">Description</h2>
-              <p className="sm:w-120 mb-10">This is an Weather App created in React enviornment It uses REST API to fetch weather data . Basically it makes get request on the server and receives the weather data and store it in variables and updates it on the page by using Hooks in react </p>
-              <a href="https://github.com/anuragsinghofficial2611/Weather-App" className="md:w-100 font-bold md:px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
-            </div>
-            <div></div>
-          </motion.div>
 
-          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}>
-            <div></div>
-            <div>
-              <p className="flex justify-between md:ml-10 mb-10 font-bold text-2xl">CRUD and Authentication System in Backend</p>
-              <img src={crud}
-                className="w-150 h-70 object-cover"
-              />
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+              <p className="mt-3 text-sm font-medium uppercase tracking-[0.25em] text-cyan-400">{project.tech}</p>
+              <p className="mt-4 flex-1 text-base leading-8 text-slate-300">{project.description}</p>
+              <a href={project.link} target="_blank" rel="noreferrer" className="mt-6 w-fit rounded-full border border-cyan-400/70 px-5 py-2 text-sm font-semibold text-cyan-300 transition hover:bg-cyan-400/10">
+                View on GitHub
+              </a>
             </div>
-            <div className="mt-10 md:flex-col">
-              <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>ExressJS , MongoDB , JWT Authentication</p>
-              <h2 className="text-2xl font-bold mt-10 ">Description</h2>
-              <p className="md:w-120 mb-10">This is an CRUD Application made in Backend using ExpressJS and MongoDB Atlas it store data online on google cloud. Basically it can take information from patient or blood donor and store it on the database and can update , change , delete their data based or requests made to server.  </p>
-              <a href="https://github.com/anuragsinghofficial2611/LifeLink-Database-Demo" className="md:w-100 font-bold md:px-30 border-1 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
-            </div>
-            <div></div>
-          </motion.div>
-          <motion.div className="flex justify-between mt-20 flex-col md:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}>
-            <div></div>
-            <div>
-              <p className="flex justify-between md:ml-45  mb-10 font-bold text-2xl">Personal Portfolio</p>
-              <video
-                src={portfoliovideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-150 h-70 object-cover"
-              />
-            </div>
-            <div className="mt-10">
-              <h2 className="font-bold text-2xl">Tech Stack</h2>
-              <p>ReactJS , TailwindCSS , Framer Motion</p>
-              <h2 className="text-2xl font-bold mt-10 m">Description </h2>
-              <p className="md:w-120 mb-10">This is personal portfolio project to showcase skills and show people about myself and my acheivments to show my capabilities made by ReactJS designed by TailwindCSS and animated through framer motion</p>
-              <a href="https://github.com/anuragsinghofficial2611/Portfolio" className="md:w-100 font-bold border-1 md:px-30 py-3 rounded-4xl hover:bg-white hover:text-black">View On GitHub</a>
-            </div>
-            <div></div>
-          </motion.div>
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            className="text-center text-2xl font-bold md:m-40">Currently Working on Many more projects.......</motion.div>
-
-        </div>
+          </motion.article>
+        ))}
       </div>
-    </div>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        className="mt-12 text-center text-lg font-semibold text-slate-300"
+      >
+        Currently building more exciting projects and refining the details.
+      </motion.div>
+    </section>
   )
 }
 

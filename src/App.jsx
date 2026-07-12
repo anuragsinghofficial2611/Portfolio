@@ -3,28 +3,16 @@ import Home from './pages/home'
 import About from './pages/about'
 import Projects from './pages/projects'
 import Contact from './pages/contact'
-import Certification from './pages/certification'
 import Footer from './components/footer'
-import{ motion }from 'framer-motion'
-import React from "react";
+
 function App() {
   return (
-    <div className = "w-full overflow-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <PortfolioBackground />
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          color: "white",
-          padding: "0px",
-        }}
-      >
-      </div>
-      <div>
+      <div className="relative z-10 text-white">
         <Home />
         <About />
-        {/* <Certification /> */}
         <Projects />
         <Contact />
         <Footer />
