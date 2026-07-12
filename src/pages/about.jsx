@@ -14,7 +14,7 @@ import c from '../assets/c.png'
 import cpp from '../assets/c++.jpg'
 const About = () => {
   return (
-    <div id="about" className="md:h-200 mt-20 ">
+    <div id="about" className="md:h-200 mt-20 mb-20 ">
       <motion.div className="text-white  text-center flex-row justify-between item-center"
         initial = {{opacity: 0, y: 40}}
         whileInView = {{opacity: 1, y: 0}}>

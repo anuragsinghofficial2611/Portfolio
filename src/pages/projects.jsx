@@ -21,7 +21,7 @@ const Projects = () => {
           whileInView = {{opacity: 1, y: 0}}>
             <div></div>
             <div>
-              <p className="flex justify-between md:ml-30 mb-10 font-bold text-2xl">CRUD Application in Backend</p>
+              <p className="flex justify-between md:ml-60 mb-10 font-bold text-2xl">LifeLink</p>
               <img src = {lifelink}
                 className="w-150 h-70 object-cover"
               />
