@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import demovideo from '../assets/weatherappdemo.mp4'
-import portfoliovideo from '../assets/portfolioproject.png'
+import portfolio from '../assets/portfolioproject.png'
 import crud from '../assets/CRUD.jpg'
 import lifelink from '../assets/lifelink.png'
 import Bloggingapp from '../assets/Bloggingapp.png'
@@ -41,8 +41,8 @@ const projects = [
   },
   {
     title: 'Personal Portfolio',
-    image: portfoliovideo,
-    type: 'video',
+    image: portfolio,
+    type: 'image',
     tech: 'ReactJS, Tailwind CSS, Framer Motion',
     description: 'A personal portfolio built to present skills, projects, and achievements with a modern and animated experience.',
     link: 'https://github.com/anuragsinghofficial2611/Portfolio',
