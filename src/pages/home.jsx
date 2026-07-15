@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const Home = () => {
     return (
-        <section id="home" className="relative min-h-screen px-4 pb-16 pt-2 scrollbar-hidden overflow-auto sm:px-6 lg:px-8">
+        <section id="home" className="relative px-4 pb-16 pt-2 scrollbar-hidden overflow-auto scroll-auto sm:px-6 lg:px-8">
             <Navbar />
 
             <div className="mx-auto flex flex-col justify-center gap-2 pt-8 sm:pt-12 lg:min-h-[80vh] lg:pt-0">

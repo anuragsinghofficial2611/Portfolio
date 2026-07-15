@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import demovideo from '../assets/weatherappdemo.mp4'
-import portfoliovideo from '../assets/portfolioproject.mp4'
+import portfoliovideo from '../assets/portfolioproject.png'
 import crud from '../assets/CRUD.jpg'
 import lifelink from '../assets/lifelink.png'
 import Bloggingapp from '../assets/Bloggingapp.png'
