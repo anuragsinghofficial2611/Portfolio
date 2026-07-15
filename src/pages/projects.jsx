@@ -13,7 +13,7 @@ const projects = [
     type: 'image',
     tech: 'ReactJS, Framer Motion, ExpressJS, MongoDB, JWT Authentication',
     description: 'A full-stack blogging platform where users can create accounts, publish posts, and explore content from other writers with secure authentication and password protection.',
-    link: 'https://github.com/Project-Lifelink/LifeLink-Frontend',
+    link: 'https://github.com/anuragsinghofficial2611/Full-Stack-Blogging-Application',
   },
   {
     title: 'LifeLink',
