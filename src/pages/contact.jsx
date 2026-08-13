@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 const socialLinks = [
   { name: 'LinkedIn', image: LinkedIn, link: 'https://www.linkedin.com/in/anurag-singh-469019381/' },
-  { name: 'Twitter', image: Twitter, link: 'https://twitter.com/@AnuragSingh300a' },
+  { name: 'Twitter', image: Twitter, link: 'https://twitter.com/' },
   { name: 'GitHub', image: GitHub, link: 'https://github.com/anuragsinghofficial2611' },
   { name: 'LeetCode', image: Leetcode, link: 'https://leetcode.com/u/BlZVSBLJIv/' },
 ]
